@@ -30,13 +30,26 @@ temp_stderr = sys.stderr
 #Logs files
 #logFile = normal log
 #errFile = warn/error logs
+
+def file_exists_write_mode(path):
+	if os.path.exists(path):
+		return 'a'
+	else:
+		return 'w'
+
 deepFakeLogsDir = actualDir+'deepfake_logs/'
-deepFakeLogFile = open(deepFakeLogsDir+'logfile '+dateString+'.txt', 'a') 
-deepFakeErrFile = open(deepFakeLogsDir+'errfile '+dateString+'.txt', 'a') 
+deepFakeLogFilename = deepFakeLogsDir+'logfile '+dateString+'.txt'
+deepFakeErrFilename = deepFakeLogsDir+'errfile '+dateString+'.txt'
+
+deepFakeLogFile = open(deepFakeLogFilename, file_exists_write_mode(deepFakeLogFilename)) 
+deepFakeErrFile = open(deepFakeErrFilename, file_exists_write_mode(deepFakeErrFilename)) 
 
 bakaMitaiLogsDir = actualDir+'bakamitai_logs/'
-bakaMitaiLogFile = open(bakaMitaiLogsDir+'logfile.txt '+dateString+'', 'a') 
-bakaMitaiErrFile = open(bakaMitaiLogsDir+'errfile.txt '+dateString+'', 'a') 
+bakaMitaiLogFilename = bakaMitaiLogsDir+'logfile '+dateString+'.txt'
+bakaMitaiErrFilename = bakaMitaiLogsDir+'errfile '+dateString+'.txt'
+
+bakaMitaiLogFile = open(bakaMitaiLogFilename, file_exists_write_mode(bakaMitaiLogFilename)) 
+bakaMitaiErrFile = open(bakaMitaiErrFilename, file_exists_write_mode(bakaMitaiErrFilename)) 
 
 def makeBakamitaiVideo():
 	
@@ -64,7 +77,7 @@ def makeBakamitaiVideo():
 def putAudioBakaMitai(video, audio, output):
 	
 	if not os.path.exists(videoBakamitai):
-		error_deepfake(e)
+		error_deepfake('')
 
 	command = "ffmpeg -i {video} -i {audio} -c:v copy -c:a aac {output}".format(video=video, audio=audio, output=output)
 	sp_bakamitai_audio = Popen(command, stdout=bakaMitaiLogFile, stderr=bakaMitaiErrFile)
