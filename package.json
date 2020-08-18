@@ -1,0 +1,29 @@
+{
+  "name": "bakamitai-bot",
+  "version": "1.0.0",
+  "description": "A bakamitai bot for Discord. Made in Node.JS and Python.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --max_old_space_size=4096 index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Izurii/BakaMitai-BOT.git"
+  },
+  "keywords": [
+    "bakamitai"
+  ],
+  "author": "Heitor Massarente",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Izurii/BakaMitai-BOT/issues"
+  },
+  "homepage": "https://github.com/Izurii/BakaMitai-BOT#readme",
+  "dependencies": {
+    "discord.js": "12.2.0",
+    "dotenv": "8.2.0",
+    "fs-extra": "9.0.1",
+    "python-shell": "2.0.1"
+  }
+}
