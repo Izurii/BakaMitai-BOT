@@ -1,0 +1,9 @@
+node_modules/
+bakamitai-workspace.code-workspace
+.gitignore
+package-lock.json
+.vscode/
+scripts/deepfake/vox-cpk.pth.tar
+scripts/deepfake/__pycache__/
+scripts/deepfake/modules/__pycache__/
+scripts/deepfake/sync_batchnorm/__pycache__/
